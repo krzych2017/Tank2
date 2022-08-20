@@ -4,7 +4,7 @@ public class Tank {
 
     private double howManyVolume;
     private double howManyLiquid;
-    private double numberTank;
+    private int numberTank;
 
     public double getHowManyVolume() {
         return howManyVolume;
@@ -26,10 +26,10 @@ public class Tank {
          System.out.println("The tank " + numberTank + " has a capacity of " + howManyVolume + "L and contains " + howManyLiquid + " L of fluid" ) ;
      }
 
-     public Tank(double howManyVolume, double hopublic Tank(double howManyVolume, double howManyLiquid, int numbetTank) {
+     public Tank(double howManyVolume, double howManyLiquid, int numberTank) {
         this.howManyVolume = howManyVolume;
         this.howManyLiquid = howManyLiquid;
-        this.numberTank =numbetTank;
+        this.numberTank =numberTank;
     }
     }
 
