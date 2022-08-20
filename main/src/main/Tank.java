@@ -23,7 +23,7 @@ public class Tank {
     }
 
     public void displayTankInfo(){
-         System.out.println("The tank " + numberTank + " has a capacity of " + howManyVolume + "L and contains " + howManyLiquid + " L of fluid" ) ;
+         System.out.println("****  The tank " + numberTank + " has a capacity of " + howManyVolume + "L and contains " + howManyLiquid + " L of fluid  ****" ) ;
      }
 
      public Tank(double howManyVolume, double howManyLiquid, int numberTank) {
