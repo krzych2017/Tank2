@@ -18,7 +18,18 @@ public class Main {
             System.out.printf("8. Find tank ....(submenu)");
             System.out.printf("0. quit ");
 
-            int choice = CheckValue.
+            int choice = CheckValue.getIntValue();
+            switch (choice){
+                case 1 ->
+                case 2 ->
+                case 3 ->
+                case 4 ->
+                case 5 ->
+                case 6 ->
+                case 7 ->
+                case 8 ->
+                case 0 ->
+            }
         }
     }
 }
