@@ -29,13 +29,6 @@ public class Program {
                 System.out.println("Too small tank !!!");
     }
 
-    public void displayTank(){
-        for(Tank tank : tanks){
-            tank.displayTankInfo();
-            System.out.println();
-        }
-    }
-
     public void addFluidTank(){
 
         double differenceLiquid;
@@ -149,5 +142,10 @@ public class Program {
         tanks.remove(deleteTank);
         numbersTank.remove(deleteTank,tank);
     }
-
+    public void displayTank(){
+        for(Tank tank : tanks){
+            tank.displayTankInfo();
+            System.out.println();
+        }
+    }
 }
