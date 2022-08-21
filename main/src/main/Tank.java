@@ -1,6 +1,6 @@
 package main;
 
-public class Tank implements Comparable<Tank> {
+public class Tank {
 
     private double howManyVolume;
     private double howManyLiquid;
@@ -25,21 +25,22 @@ public class Tank implements Comparable<Tank> {
     }
 
     public void displayTankInfo(){
-         System.out.println("****  The tank " + numberTank + " has a capacity of " + howManyVolume + "L and contains " + howManyLiquid + " L of fluid. This is " + percent + " % full ****" ) ;
+         System.out.println("****  The tank " + numberTank + " has a capacity of " + howManyVolume + "L and contains " + howManyLiquid + " L of fluid. This is  " + percent + " % full ****" ) ;
      }
 
      public Tank(double howManyVolume, double howManyLiquid, int numberTank, float percent) {
         this.howManyVolume = howManyVolume;
         this.howManyLiquid = howManyLiquid;
-        this.numberTank =numberTank;
+        this.numberTank = numberTank;
         this.percent = percent;
     }
 
-    @Override
-    public int compareTo(Tank o) {
-        int result = (int) (this.percent - o.percent);
+    public float getPercent() {
+        return percent;
+    }
 
-        return result;
+    public void setPercent(float percent) {
+        this.percent = percent;
     }
 }
 

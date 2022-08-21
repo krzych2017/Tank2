@@ -2,32 +2,29 @@ package main;
 
 import java.util.*;
 
-public class Program {
+public class Program{
 
-    private final List <Tank> tanks = new ArrayList<>();
-    private final Map<Integer,Tank> numbersTank = new HashMap<>();
+    private final List<Tank> tanks = new ArrayList<>();
+    private final Map<Integer, Tank> numbersTank = new HashMap<>();
 
 
-
-    public void addTank(){
-        System.out.println("Enter a size of tank (liters) : " );
+    public void addTank() {
+        System.out.println("Enter a size of tank (liters) : ");
         double howManyVolume = CheckValue.getDoubleValue();
         System.out.println("Enter the amount of liquid of the tank (liters) : ");
         double howManyLiquid = CheckValue.getDoubleValue();
+        if (howManyVolume >= howManyLiquid) {
 
-            if(howManyVolume>=howManyLiquid){
-                float percent = (float)((howManyLiquid/howManyVolume)*100);
-                int numberTank = tanks.size()+1;
-                Tank tank = new Tank(howManyVolume, howManyLiquid, numberTank, percent);
-                tanks.add(tank);
-                numbersTank.put(numberTank, tank);
-            }
-
-            else
-                System.out.println("Too small tank !!!");
+            int numberTank = tanks.size() + 1;
+            float percent=(float)((howManyLiquid/howManyVolume)*100);
+            Tank tank = new Tank(howManyVolume, howManyLiquid, numberTank,percent);
+            tanks.add(tank);
+            numbersTank.put(numberTank, tank);
+        } else
+            System.out.println("Too small tank !!!");
     }
 
-    public void addFluidTank(){
+    public void addFluidTank() {
 
         double differenceLiquid;
         double addFluid;
@@ -36,23 +33,23 @@ public class Program {
         int number = CheckValue.getIntValue();
         Tank tank = numbersTank.get(number);
 
-            if (tank==null)
-                System.out.println("Bad select");
-            else {
-                differenceLiquid= tank.getHowManyVolume()-tank.getHowManyLiquid();
-                System.out.println("You can add " + differenceLiquid + " in the tank nr " + number);
-                System.out.println("How much liquid do you want to add to the tank??");
-                addFluid = CheckValue.getDoubleValue();
-                if (addFluid <= differenceLiquid)
-                    tank.setHowManyLiquid(tank.getHowManyLiquid()+addFluid);
-                else
-                    System.out.println("too much !!!");
+        if (tank == null)
+            System.out.println("Bad select");
+        else {
+            differenceLiquid = tank.getHowManyVolume() - tank.getHowManyLiquid();
+            System.out.println("You can add " + differenceLiquid + " in the tank nr " + number);
+            System.out.println("How much liquid do you want to add to the tank??");
+            addFluid = CheckValue.getDoubleValue();
+            if (addFluid <= differenceLiquid)
+                tank.setHowManyLiquid(tank.getHowManyLiquid() + addFluid);
+            else
+                System.out.println("too much !!!");
 
 
-            }
+        }
     }
 
-    public void pourOut(){
+    public void pourOut() {
 
         double pourOutLiquid;
         System.out.println("Select the tank number: ");
@@ -61,14 +58,14 @@ public class Program {
 
         if (tank == null)
             System.out.println("Bad select");
-        else{
+        else {
             System.out.println("You can pour out maximal " + tank.getHowManyLiquid() + " Liters with the tank nr " + number);
             System.out.println("How much do you want pour out ? ");
             pourOutLiquid = CheckValue.getDoubleValue();
             if (pourOutLiquid >= tank.getHowManyLiquid())
                 System.out.println("Too much pour out !!");
             else
-                tank.setHowManyLiquid(tank.getHowManyLiquid()-pourOutLiquid);
+                tank.setHowManyLiquid(tank.getHowManyLiquid() - pourOutLiquid);
         }
     }
 
@@ -112,65 +109,101 @@ public class Program {
 
     }
 
-    public void editTank(){
+    public void editTank() {
         System.out.println("Which tak do you want edit ???");
         int numberEdit = CheckValue.getIntValue();
         Tank tank = numbersTank.get(numberEdit);
-        if (tank==null)
+        if (tank == null)
             System.out.println("Bad tank number!!");
-        else{
+        else {
             System.out.println("New size of tank (liter): ");
             double newVolume = CheckValue.getDoubleValue();
             tank.setHowManyVolume(newVolume);
             System.out.println("Enter the amount of liquid of the tank");
             double newLiquid = CheckValue.getDoubleValue();
-            if (newVolume <= newLiquid )
+            if (newVolume <= newLiquid)
                 System.out.println("Bad Value !");
             else
                 tank.setHowManyLiquid(newLiquid);
         }
     }
 
-    public void deleteTank(){
+    public void deleteTank() {
 
         System.out.println("Which tank do you want to delete ??");
         int deleteTank = CheckValue.getIntValue();
         Tank tank = numbersTank.get(deleteTank);
-        System.out.println("Delete tank nr " + deleteTank );
+        System.out.println("Delete tank nr " + deleteTank);
         tanks.remove(deleteTank);
-        numbersTank.remove(deleteTank,tank);
+        numbersTank.remove(deleteTank, tank);
     }
-    public void displayTank(){
-        for(Tank tank : tanks){
+
+    public void displayTank() {
+        for (Tank tank : tanks) {
             tank.displayTankInfo();
             System.out.println();
         }
     }
 
-    public void submenu(){
-
+    public void submenu() {
         boolean shouldContinue = true;
+        while (shouldContinue) {
+            System.out.println("**********Sub menu*****************");
+            System.out.println("*  1. Find a full tank            *");
+            System.out.println("*  2. Find a empty tank           *");
+            System.out.println("*  3. Sort tank (empty to full)   *");
+            System.out.println("*  4. Sort tank (full to empty)   *");
+            System.out.println("*  9. Back to menu                *");
+            System.out.println("***********************************");
+            int choice = CheckValue.getIntValue();
 
+            switch (choice) {
 
-        while (shouldContinue){
-        System.out.println("**********Sub menu*****************");
-        System.out.println("*  1. Find a full tank            *");
-        System.out.println("*  2. Find a empty tank           *");
-        System.out.println("*  3. Sort tank (empty to full)   *");
-        System.out.println("*  4. Sort tank (full to empty)   *");
-        System.out.println("*  9. Back to menu                *");
-        System.out.println("***********************************");
-        int choice = CheckValue.getIntValue();
-       switch (choice){
-           case 1 -> {
-               Collections.sort(tanks);
+                case 1 -> {
+                    for (Tank tank : tanks) {
+                        if (tank.getPercent() >= 100) {
+                            tank.displayTankInfo();
+                            System.out.println();
+                        }
+                    }
+                }
 
-           }
-           case 3 -> Collections.sort(tanks);
-           case 4 -> Collections.s(tanks);
-           case 9 -> shouldContinue=false;
-        }
-        }
+                case 2 -> {
+                    for (Tank tank : tanks) {
+                        if (tank.getPercent() == 0) {
+                            tank.displayTankInfo();
+                            System.out.println();
+                        }
+                        else
+                            System.out.println("All tank have liquid");
+                    }
+                }
+
+                case 3 -> {
+                    Collections.sort(tanks, new Comparator<Tank>() {
+                        @Override
+                        public int compare(Tank o1, Tank o2) {
+                            return (int) (o1.getPercent() - o2.getPercent());
+                        }
+                    });
+
+                }
+
+                case 4 ->{
+                    Collections.sort(tanks, new Comparator<Tank>() {
+                        @Override
+                        public int compare(Tank o1, Tank o2) {
+                            return -1*(int) (o1.getPercent() - o2.getPercent());
+                        }
+                    });
+                }
+
+                case 9 -> shouldContinue=false;
+                        }
+                    }
+                }
+
 
     }
-}
+
+

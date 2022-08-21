@@ -46,10 +46,10 @@ public class CheckValue {
             }
 
             catch (NumberFormatException e){
-                number = 0;
+               number = 0 ;
                 System.out.println("Bad value!!!");
             }
-            if (number!= 0)
+            if (number != 0 )
                 a=true;
         }
         while (!a);
