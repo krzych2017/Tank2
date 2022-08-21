@@ -1,9 +1,6 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Program {
 
@@ -17,12 +14,13 @@ public class Program {
         double howManyVolume = CheckValue.getDoubleValue();
         System.out.println("Enter the amount of liquid of the tank (liters) : ");
         double howManyLiquid = CheckValue.getDoubleValue();
-            if(howManyVolume>=howManyLiquid){
 
+            if(howManyVolume>=howManyLiquid){
+                float percent = (float)((howManyLiquid/howManyVolume)*100);
                 int numberTank = tanks.size()+1;
-                Tank tank = new Tank(howManyVolume, howManyLiquid, numberTank);
+                Tank tank = new Tank(howManyVolume, howManyLiquid, numberTank, percent);
                 tanks.add(tank);
-                numbersTank.put(numberTank,tank);
+                numbersTank.put(numberTank, tank);
             }
 
             else
@@ -151,14 +149,28 @@ public class Program {
 
     public void submenu(){
 
+        boolean shouldContinue = true;
+
+
+        while (shouldContinue){
         System.out.println("**********Sub menu*****************");
         System.out.println("*  1. Find a full tank            *");
         System.out.println("*  2. Find a empty tank           *");
         System.out.println("*  3. Sort tank (empty to full)   *");
         System.out.println("*  4. Sort tank (full to empty)   *");
-        System.out.println("*  0. Back to menu                *");
+        System.out.println("*  9. Back to menu                *");
         System.out.println("***********************************");
+        int choice = CheckValue.getIntValue();
+       switch (choice){
+           case 1 -> {
+               Collections.sort(tanks);
 
+           }
+           case 3 -> Collections.sort(tanks);
+           case 4 -> Collections.s(tanks);
+           case 9 -> shouldContinue=false;
+        }
+        }
 
     }
 }
