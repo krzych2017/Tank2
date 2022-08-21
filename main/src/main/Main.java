@@ -17,19 +17,21 @@ public class Main {
             System.out.println("|  6. Delete tank                              |");
             System.out.println("|  7. Display all tank                         |");
             System.out.println("|  8. Find tank ....(submenu)                  |");
-            System.out.println("|  0. quit                                     |");
+            System.out.println("|  9. quit                                     |");
             System.out.println("|______________________________________________|");
             int choice = CheckValue.getIntValue();
-            switch (choice) {
-                case 1 -> program.addTank();
-                case 2 -> program.addFluidTank();
-                case 3 -> program.pourOut();
-                case 4 -> program.transfer();
-                case 5 -> program.editTank();
-                case 6 -> program.deleteTank();
-                case 7 -> program.displayTank();
+                switch (choice) {
+                    case 1 -> program.addTank();
+                    case 2 -> program.addFluidTank();
+                    case 3 -> program.pourOut();
+                    case 4 -> program.transfer();
+                    case 5 -> program.editTank();
+                    case 6 -> program.deleteTank();
+                    case 7 -> program.displayTank();
+                    case 8 -> program.submenu();
+                    case 9 -> shouldContinue=false;
+                }
 
-            }
         }
     }
 }

@@ -148,4 +148,17 @@ public class Program {
             System.out.println();
         }
     }
+
+    public void submenu(){
+
+        System.out.println("**********Sub menu*****************");
+        System.out.println("*  1. Find a full tank            *");
+        System.out.println("*  2. Find a empty tank           *");
+        System.out.println("*  3. Sort tank (empty to full)   *");
+        System.out.println("*  4. Sort tank (full to empty)   *");
+        System.out.println("*  0. Back to menu                *");
+        System.out.println("***********************************");
+
+
+    }
 }
