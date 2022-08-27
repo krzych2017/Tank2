@@ -6,7 +6,7 @@ public class Main {
         boolean shouldContinue = true;
         Program program = new Program();
 
-        while (shouldContinue){
+        while (shouldContinue) {
             System.out.println("________________________________________________");
             System.out.println("|               Entry a value :                |");
             System.out.println("|  1. Add new tank                             |");
@@ -20,17 +20,17 @@ public class Main {
             System.out.println("|  9. quit                                     |");
             System.out.println("|______________________________________________|");
             int choice = CheckValue.getIntValue();
-                switch (choice) {
-                    case 1 -> program.addTank();
-                    case 2 -> program.addFluidTank();
-                    case 3 -> program.pourOut();
-                    case 4 -> program.transfer();
-                    case 5 -> program.editTank();
-                    case 6 -> program.deleteTank();
-                    case 7 -> program.displayTank();
-                    case 8 -> program.submenu();
-                    case 9 -> shouldContinue=false;
-                }
+            switch (choice) {
+                case 1 -> program.addTank();
+                case 2 -> program.addFluidTank();
+                case 3 -> program.pourOut();
+                case 4 -> program.transfer();
+                case 5 -> program.editTank();
+                case 6 -> program.deleteTank();
+                case 7 -> program.displayTank();
+                case 8 -> program.submenu();
+                case 9 -> shouldContinue = false;
+            }
 
         }
     }

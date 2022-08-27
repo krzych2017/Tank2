@@ -2,10 +2,10 @@ package main;
 
 import java.util.*;
 
-public class Program{
+public class Program {
 
-    private final List<Tank> tanks = new ArrayList<>();
-    private final Map<Integer, Tank> numbersTank = new HashMap<>();
+    private List<Tank> tanks = new ArrayList<>();
+    private Map<Integer, Tank> numbersTank = new HashMap<>();
 
 
     public void addTank() {
@@ -16,8 +16,8 @@ public class Program{
         if (howManyVolume >= howManyLiquid) {
 
             int numberTank = tanks.size() + 1;
-            float percent=(float)((howManyLiquid/howManyVolume)*100);
-            Tank tank = new Tank(howManyVolume, howManyLiquid, numberTank,percent);
+            float percent = (float) ((howManyLiquid / howManyVolume) * 100);
+            Tank tank = new Tank(howManyVolume, howManyLiquid, numberTank, percent);
             tanks.add(tank);
             numbersTank.put(numberTank, tank);
         } else
@@ -173,8 +173,7 @@ public class Program{
                         if (tank.getPercent() == 0) {
                             tank.displayTankInfo();
                             System.out.println();
-                        }
-                        else
+                        } else
                             System.out.println("All tank have liquid");
                     }
                 }
@@ -189,21 +188,21 @@ public class Program{
 
                 }
 
-                case 4 ->{
+                case 4 -> {
                     Collections.sort(tanks, new Comparator<Tank>() {
                         @Override
                         public int compare(Tank o1, Tank o2) {
-                            return -1*(int) (o1.getPercent() - o2.getPercent());
+                            return -1 * (int) (o1.getPercent() - o2.getPercent());
                         }
                     });
                 }
 
-                case 9 -> shouldContinue=false;
-                        }
-                    }
-                }
-
-
+                case 9 -> shouldContinue = false;
+            }
+        }
     }
+
+
+}
 
 

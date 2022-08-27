@@ -4,53 +4,49 @@ import java.util.Scanner;
 
 public class CheckValue {
 
-    public static int getIntValue(){
+    public static int getIntValue() {
 
-        boolean a=false;
+        boolean a = false;
         int number;
 
-        do{
+        do {
             Scanner scan = new Scanner(System.in);
             System.out.println("Enter a value: ");
             String data = scan.nextLine();
 
-            try{
-                number=Integer.parseInt(data);
-            }
-
-            catch (NumberFormatException e){
+            try {
+                number = Integer.parseInt(data);
+            } catch (NumberFormatException e) {
                 number = 0;
                 System.out.println("Bad value!!! ");
             }
 
-            if(number != 0){
-                a=true;
+            if (number != 0) {
+                a = true;
             }
         }
         while (!a);
         return number;
     }
 
-    public static double getDoubleValue(){
+    public static double getDoubleValue() {
 
-        boolean a=false;
+        boolean a = false;
         double number;
 
-        do{
+        do {
             Scanner scan = new Scanner(System.in);
             System.out.println("Enter a value:");
             String data = scan.nextLine();
 
-            try{
+            try {
                 number = Double.parseDouble(data);
-            }
-
-            catch (NumberFormatException e){
-               number = 0 ;
+            } catch (NumberFormatException e) {
+                number = 0;
                 System.out.println("Bad value!!!");
             }
-            if (number != 0 )
-                a=true;
+            if (number != 0)
+                a = true;
         }
         while (!a);
         return number;
